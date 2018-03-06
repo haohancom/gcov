@@ -1,2 +1,2 @@
 # gcov
-TODO: add gcov in it
+TODO: add gcov in it and complete makefile
