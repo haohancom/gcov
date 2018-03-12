@@ -22,7 +22,7 @@ void getInfo(vector<string> &v){
 
 void printVector(vector<string> v){
     cout << "print info in v : "<<endl;
-    auto i = v.begin();
+    vector<string>::iterator i = v.begin();
     while (v.end() != i){
         cout << *i << endl;
         ++i;
@@ -31,18 +31,18 @@ void printVector(vector<string> v){
 }
 
 const char* string2char(string s){
-    shared_ptr<string> p(new string(s));
+    auto_ptr<string> p(new string(s));
     return p->c_str();
 }
 
-void getFilename(string &sFilename, const vector<string> &v){
-    auto i = v.end() - 1;
+void getFilename(string &sFilename, vector<string> &v){
+    vector<string>::iterator i = v.end() - 1;
     sFilename = *i;
     cout << "filename is : " << sFilename << endl;
 }
 
 bool searchStrInLine(vector<string> v, string sLine){
-    auto i = v.begin();
+    vector<string>::iterator i = v.begin();
     while(v.end() - 1 != i){
         if(string::npos == sLine.find(*i)){
             return 0;
@@ -63,7 +63,7 @@ int main(){
     // got filename
 
     ifstream file;
-    file.open(sFilename, ios::in);
+    file.open(sFilename.c_str(), ios::in);
     if(!file.is_open()){
         cout << "file open error ! " << endl;
         return 0;
