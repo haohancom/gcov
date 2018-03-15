@@ -1,10 +1,3 @@
-/*************************************************************************
-	> File Name: infoCatchTool.cpp
-	> Author: hanhao
-	> Mail: hanhao@cisco.com
-	> Created Time: 2018年03月05日 星期一 21时18分29秒
- ************************************************************************/
-
 #include<iostream>
 #include<string>
 #include<vector>
@@ -12,11 +5,18 @@
 #include<fstream>
 using namespace std;
 
-void getInfo(vector<string> &v){
-    string s;
-    while (cin >> s){
+void getInfo(vector<string> &v, char** argv){
+    string s = "";
+    //while (cin >> s){
+        //v.push_back(s);
+        //s = "";
+    //}
+    int index = 1;
+    while (NULL != argv[index]){
+        s = argv[index];
         v.push_back(s);
         s = "";
+        ++index;
     }
 }
 
@@ -52,9 +52,9 @@ bool searchStrInLine(vector<string> v, string sLine){
     return 1;
 }
 
-int main(){
+int main(int argc, char** argv){
     vector<string> vInfo;
-    getInfo(vInfo);
+    getInfo(vInfo, argv);
     // At least 2 string; 
     // the last one is name of the file which you want to search in;
 

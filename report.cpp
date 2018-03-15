@@ -1,10 +1,3 @@
-/*************************************************************************
-	> File Name: report.cpp
-	> Author: hanhao
-	> Mail: hanhao@cisco.com
-	> Created Time: Thu 15 Mar 2018 05:24:24 AM GMT
- ************************************************************************/
-
 #include<iostream>
 #include<string>
 #include<fstream>
