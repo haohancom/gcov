@@ -7,10 +7,6 @@ using namespace std;
 
 void getInfo(vector<string> &v, char** argv){
     string s = "";
-    //while (cin >> s){
-        //v.push_back(s);
-        //s = "";
-    //}
     int index = 1;
     while (NULL != argv[index]){
         s = argv[index];
@@ -60,7 +56,6 @@ int main(int argc, char** argv){
 
     string sFilename = "";
     getFilename(sFilename, vInfo);
-    // got filename
 
     ifstream file;
     file.open(sFilename.c_str(), ios::in);

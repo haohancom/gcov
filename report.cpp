@@ -30,7 +30,7 @@ bool bLineCov(const string &s){
 int main(){
     const int max_buffer = 256;
     char buffer[max_buffer];
-    string sInFileName = "test";
+    string sInFileName = "lineInfo";
     string sOutFileName = "coverageReport";
     string sL = "";
     string sR = "";

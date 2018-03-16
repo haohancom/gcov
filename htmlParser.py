@@ -3,6 +3,7 @@
 import bs4
 from bs4 import BeautifulSoup
 
+outFileName = "lineInfo"
 def writeToFile(str, fileName):
     str = str + '\n'
     with open(fileName, 'a') as f:
@@ -17,17 +18,16 @@ def getNumFromStr(str):
 def saveLineNum(str):
     str = getNumFromStr(str)
     str = "lineNum : " + str
-    writeToFile(str, "test")
+    writeToFile(str, outFileName)
 
 def saveLineCov(str):
     str = getNumFromStr(str)
     str = "lineCov : " + str
-    writeToFile(str, "test")
+    writeToFile(str, outFileName)
 
 inFileName = "./infoCatchTool_result/root/hanhao/gcov/infoCatchTool.cpp.gcov.html"
 soup = BeautifulSoup(open(inFileName), "lxml")
 
-outFileName = "test"
 with open(outFileName, 'w') as f:
     f.write('')
 
