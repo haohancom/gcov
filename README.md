@@ -1,5 +1,5 @@
 # a code coverage tool
-===
+
 ## inroduction
 **work flow:**
 1. compile & run infoCatchTool.cpp
