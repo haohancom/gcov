@@ -6,7 +6,7 @@ readme.md
 1. compile & run infoCatchTool.cpp
 * This tool is cerated as a mutiple-keyword search tool which can search one or more keywords in a file and you can get lines from target file which includes the keyword(s) you search.
 *it's the target program we try to get its code coverage
-* _how to use it :_ 
+* _how to use it :_
 ```bash
 [root@localhost gcov]# cat targetFile
 1 2 3
@@ -20,12 +20,12 @@ filename is : targetFile
 3 4 5
 ```
 2. use google __gcov__ and __lcov__ tool to generate a code coverage report
-3. run htmlParser.py 
+3. run htmlParser.py
 * this python program can parse the html report and list the usaful information in a file named lineInfo
 4. compile & run report.cpp
 * thie tool can parse file created by python program and generate the final report we want.
-## makefile 
+## makefile
 1. use ```make``` to compile & run the programs and generate report automatically
 2. use ```make clean``` to remove unwanted intermediate files
-
-
+## TODO
+add a tool which can combine report with gitdiff, so that when someone change the code, the report will refresh.
