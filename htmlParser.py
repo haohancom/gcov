@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
+
 import bs4
+import sys
+
 from bs4 import BeautifulSoup
 
 outFileName = "lineInfo"
@@ -25,7 +28,7 @@ def saveLineCov(str):
     str = "lineCov : " + str
     writeToFile(str, outFileName)
 
-inFileName = "./infoCatchTool_result/root/hanhao/gcov/infoCatchTool.cpp.gcov.html"
+inFileName = str(sys.argv[1])
 soup = BeautifulSoup(open(inFileName), "lxml")
 
 with open(outFileName, 'w') as f:

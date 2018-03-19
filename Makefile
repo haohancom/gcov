@@ -1,5 +1,6 @@
 CURR_PATH=$(shell pwd)
 SEARCH_TARGET_FILE=targetFile
+HTML_FILE_PATH=$(shell find . -name infoCatchTool.cpp.gcov.html)
 
 all:
 	g++ -c infoCatchTool.cpp -ftest-coverage -fprofile-arcs
@@ -8,7 +9,7 @@ all:
 	gcov infoCatchTool.cpp
 	lcov -c -o infoCatchTool.info -d .
 	genhtml infoCatchTool.info -o infoCatchTool_result
-	python htmlParser.py
+	python htmlParser.py HTML_FILE_PATH
 	g++ report.cpp -std=c++11 -g -o report
 	./report
 clean:
