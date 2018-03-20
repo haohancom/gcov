@@ -1,6 +1,7 @@
 CURR_PATH=$(shell pwd)
 SEARCH_TARGET_FILE=targetFile
-HTML_FILE_PATH=$(shell find . -name infoCatchTool.cpp.gcov.html)
+#HTML_FILE_PATH=$(shell find . -name infoCatchTool.cpp.gcov.html)
+HTML_FILE_PATH=./infoCatchTool_result$(CURR_PATH)/infoCatchTool.cpp.gcov.html
 
 all:
 	g++ -c infoCatchTool.cpp -ftest-coverage -fprofile-arcs

@@ -3,7 +3,6 @@
 #include<fstream>
 using namespace std;
 FILE* shell(string cmd){
-    cout<<"call shell function , the command is : "<<cmd<<endl;
     FILE* stream;
     cmd.append(" 2>&1");
 
