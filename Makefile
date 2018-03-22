@@ -11,7 +11,7 @@ all:
 	lcov -c -o infoCatchTool.info -d .
 	genhtml infoCatchTool.info -o infoCatchTool_result
 	python htmlParser.py $(HTML_FILE_PATH)
-	g++ report.cpp -std=c++11 -g -o report
+	g++ report.cpp tool/tool.cpp -std=c++11 -g -o report
 	./report
 clean:
 	rm -rf infoCatchTool_result

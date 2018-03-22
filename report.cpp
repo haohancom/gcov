@@ -1,14 +1,8 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include"tool/tool.h"
 using namespace std;
-FILE* shell(string cmd){
-    FILE* stream;
-    cmd.append(" 2>&1");
-
-    stream = popen(cmd.c_str(), "r");
-    return stream;
-}
 
 bool bLineNum(const string &s){
     std::size_t found = s.find("lineNum");
