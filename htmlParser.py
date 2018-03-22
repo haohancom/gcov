@@ -15,7 +15,7 @@ def writeToFile(str, fileName):
 def getNumFromStr(str):
     strs = str.split(" ")
     for s in strs:
-        if(s.isalnum()):
+        if(s.isdigit()):
             return s
 
 def saveLineNum(str):
