@@ -1,13 +1,6 @@
-/*************************************************************************
-	> File Name: diffAnalyse.cpp
-	> Created Time: Wed 21 Mar 2018 08:11:20 AM GMT
- ************************************************************************/
-
 #include<iostream>
+#include<fstream>
 using namespace std;
-// TODO : analyse git diff and change coverage report file.
-
-
 
 /* example
  *--- a/infoCatchTool.cpp
@@ -41,5 +34,16 @@ using namespace std;
  *}
  */
 int main(){
+    string sFilename = "";
+    ifstream file;
+    file.open(sFilename.c_str(), ios::in);
+    if (!file.is_open()){
+        cout << "file open error ! " << endl;
+        return 0;
+    }
+    string sLine = "";
+    while (getline(file, sLine)){
+        // do some thing
+    }
     return 0;
 }

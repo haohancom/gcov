@@ -39,8 +39,8 @@ void getFilename(string &sFilename, vector<string> &v){
 
 bool searchStrInLine(vector<string> v, string sLine){
     vector<string>::iterator i = v.begin();
-    while(v.end() - 1 != i){
-        if(string::npos == sLine.find(*i)){
+    while (v.end() - 1 != i){
+        if (string::npos == sLine.find(*i)){
             return 0;
         } 
         ++i;
@@ -59,13 +59,13 @@ int main(int argc, char** argv){
 
     ifstream file;
     file.open(sFilename.c_str(), ios::in);
-    if(!file.is_open()){
+    if (!file.is_open()){
         cout << "file open error ! " << endl;
         return 0;
     }
     string sLine = "";
-    while(getline(file, sLine)){
-        if(searchStrInLine(vInfo, sLine)){
+    while (getline(file, sLine)){
+        if (searchStrInLine(vInfo, sLine)){
             cout << sLine << endl;
         }
     }
