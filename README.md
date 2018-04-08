@@ -2,9 +2,9 @@
 
 ## inroduction
 **work flow:**
-1. compile & run infoCatchTool.cpp
+1. compile and run infoCatchTool.cpp
+* it's the target program we try to get its code coverage
 * This tool is cerated as a mutiple-keyword search tool which can search one or more keywords in a file and you can get lines from target file which includes the keyword(s) you search.
-*it's the target program we try to get its code coverage
 * _how to use it :_
 ```bash
 [root@localhost gcov]# cat targetFile
@@ -28,3 +28,6 @@ filename is : targetFile
 2. use ```make clean``` to remove unwanted intermediate files
 ## TODO
 add a tool which can combine report with gitdiff, so that when someone change the code, the report will refresh.
+- switch git diff result from stream to vector<string>
+- analyze vector and get changed line num
+- change report html file to show changed code coverage situation intuitively 
