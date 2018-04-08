@@ -10,8 +10,8 @@
 
 FILE* shell(std::string cmd);
 void shellResultToVector(FILE* shellResult, std::vector<std::string>& v);
-void SplitString(const std::string& s, std::vector<std::string>& v, const std::string& c);
-bool isalnum(const std::string& s);
+void splitString(const std::string& s, std::vector<std::string>& v, const std::string& c);
+bool isnum(const std::string& s);
 void str2int(const std::string &s, int &i);
 
 #endif
