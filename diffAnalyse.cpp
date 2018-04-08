@@ -1,49 +1,38 @@
 #include<iostream>
-#include<fstream>
+#include"tool/tool.h"
 using namespace std;
 
-/* example
- *--- a/infoCatchTool.cpp
- *+++ b/infoCatchTool.cpp
- *@@ -50,12 +50,12 @@ bool searchStrInLine(vector<string> v, string sLine){
- *
- * int main(int argc, char** argv){
- *     vector<string> vInfo;
- *+    // add a line
- *     getInfo(vInfo, argv);
- *     // At least 2 string;
- *-    // the last one is name of the file which you want to search in;
- *
- *     string sFilename = "";
- *-    getFilename(sFilename, vInfo);
- *+    getFilename(sFilename, vInfo);
- *        
- *     ifstream file;
- *     file.open(sFilename.c_str(), ios::in);
- *diff --git a/report.cpp b/report.cpp
- *index e260dd8..1b0f80a 100644
- *--- a/report.cpp
- *+++ b/report.cpp
- *@@ -1,14 +1,8 @@
- * #include<iostream>
- * #include<string>
- * #include<fstream>
- * +#include"tool/tool.h"
- *                          
- *    }
- *}
- */
+void res2int(vector<string> vDiffReslut, vector<int> &vChangedLine){
+    bool begin = 0;
+    bool end = 0;
+    string str = "";
+    string sPos = "";
+    int iPos = 0;
+    vector<string>::iterator it = vDiffReslut.begin();
+    while(vDiffReslut.end() != it){
+        str = *it;
+        if('@' == str[0] && '@' == str[1]){
+            begin = 1;
+            end = 0;
+
+            std::size_t pos1= str.find("+");
+            std::size_t pos2= str.find(",", pos1 + 1);
+            sPos = str.substr(pos1 + 1, pos2 - pos1 - 1);
+            str2int(sPos, ipos);
+
+            //now iPos saves the begin position of changed code
+        }
+
+        ++it;
+    }
+}
+
 int main(){
-    string sFilename = "";
-    ifstream file;
-    file.open(sFilename.c_str(), ios::in);
-    if (!file.is_open()){
-        cout << "file open error ! " << endl;
-        return 0;
-    }
-    string sLine = "";
-    while (getline(file, sLine)){
-        // do some thing
-    }
+    vector<string> vDiffReslut;;   
+    shellResultToVector(shell("git diff"), vDiffReslut);
+
+    //analyse vDiffReslut
+    vector<int> vChangedLine;
+    res2int(vDiffReslut, vChangedLine);
     return 0;
 }

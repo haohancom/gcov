@@ -13,7 +13,8 @@ all:
 	python htmlParser.py $(HTML_FILE_PATH)
 	g++ report.cpp tool/tool.cpp -std=c++11 -g -o report
 	./report
+	g++ diffAnalyse.cpp tool/tool.cpp -std=c++11 -g -o diffAnalyse
 clean:
 	rm -rf infoCatchTool_result
 	rm -f infoCatchTool infoCatchTool.info infoCatchTool.o infoCatchTool.g*
-	rm -f lineInfo report
+	rm -f lineInfo report diffAnalyse
