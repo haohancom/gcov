@@ -54,3 +54,7 @@ bool isnum(const std::string& s){
     }
     return result;
 }
+
+void str2int(const std::string &s, int &i){
+    std::stringstream(s) >> i;
+}
