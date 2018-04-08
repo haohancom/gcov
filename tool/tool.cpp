@@ -8,6 +8,24 @@ FILE* shell(std::string cmd){
     return stream;
 }
 
+void shellResultToVector(FILE* stream, std::vector<std::string>& v){
+    const int max_buffer = 256;
+    char buffer[max_buffer];
+
+    if(stream){
+        while(!feof(stream)){
+            if(NULL != fgets(buffer, max_buffer, stream)){
+                v.push_back(buffer);
+            } 
+        }
+        pclose(stream);
+    }
+    else{
+        std::cout << "ERROE: STREAM IS NULL, EXIT THIS FUNCTION !";
+        return;
+    }
+}
+
 void SplitString(const std::string& s, std::vector<std::string>& v, const std::string& c)
 {
     std::string::size_type pos1, pos2;
