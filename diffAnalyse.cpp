@@ -18,7 +18,7 @@ void res2int(vector<string> vDiffReslut, vector<int> &vChangedLine){
             std::size_t pos1= str.find("+");
             std::size_t pos2= str.find(",", pos1 + 1);
             sPos = str.substr(pos1 + 1, pos2 - pos1 - 1);
-            str2int(sPos, ipos);
+            str2int(sPos, iPos);
 
             //now iPos saves the begin position of changed code
         }
