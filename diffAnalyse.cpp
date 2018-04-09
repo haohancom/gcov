@@ -4,25 +4,45 @@ using namespace std;
 
 void res2int(vector<string> vDiffReslut, vector<int> &vChangedLine){
     bool begin = 0;
-    bool end = 0;
     string str = "";
     string sPos = "";
     int iPos = 0;
     vector<string>::iterator it = vDiffReslut.begin();
     while(vDiffReslut.end() != it){
         str = *it;
-        if('@' == str[0] && '@' == str[1]){
+
+        //diff --git a/fileName b/fileName
+        if ('d' == str[0]){
+            begin = 0;
+            iPos = 0;
+        }
+
+        //@@ -beginLocation, length +beginLocation, length @@xxxxxx
+        if ('@' == str[0] && '@' == str[1]){
             begin = 1;
-            end = 0;
 
             std::size_t pos1= str.find("+");
             std::size_t pos2= str.find(",", pos1 + 1);
             sPos = str.substr(pos1 + 1, pos2 - pos1 - 1);
             str2int(sPos, iPos);
-
-            //now iPos saves the begin position of changed code
+            --iPos; //now iPos saves the begin position of changed code
         }
 
+        //normal line
+        if (' ' == str[0]){
+            ++iPos;
+        }
+
+        //+ xxxxxx
+        if (begin && '+' == str[0]){
+            ++iPos;
+            vChangedLine.push_back(iPos);
+        }
+
+        //- xxxxxx
+        if (begin && '-' == str[0]){
+            //do nothing
+        }
         ++it;
     }
 }
