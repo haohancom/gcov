@@ -15,7 +15,7 @@ def writeToFile(str, fileName):
 def getNumFromStr(str):
     strs = str.split(" ")
     for s in strs:
-        if(s.isdigit()):
+        if (s.isdigit()):
             return s
 
 def saveLineNum(str):
@@ -37,7 +37,7 @@ with open(outFileName, 'w') as f:
 pre = soup.find("pre", class_ = "source")
 
 for child in pre.children:
-    if(type(child) == bs4.element.Tag):
+    if (type(child) == bs4.element.Tag):
         if (child.has_attr('class')):
             if (child['class'] == ['lineNum']):
                 saveLineNum(child.string)
