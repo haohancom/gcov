@@ -1,0 +1,24 @@
+diff --git a/diffAnalyse.cpp b/diffAnalyse.cpp
+index 322d747..c3edb0e 100644
+--- a/diffAnalyse.cpp
++++ b/diffAnalyse.cpp
+@@ -12,6 +12,7 @@ void res2int(vector<string> vDiffReslut, vector<int> &vChangedLine){
+     while(vDiffReslut.end() != it){
+         str = *it;
+         if('@' == str[0] && '@' == str[1]){
++
+             begin = 1;
+             end = 0;
+
+diff --git a/tool/tool.cpp b/tool/tool.cpp
+index a65c169..0095265 100644
+--- a/tool/tool.cpp
++++ b/tool/tool.cpp
+@@ -9,6 +9,7 @@ FILE* shell(std::string cmd){
+ }
+
+ void shellResultToVector(FILE* stream, std::vector<std::string>& v){
++
+     const int max_buffer = 256;
+     char buffer[max_buffer];
+
