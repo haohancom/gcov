@@ -59,10 +59,4 @@ void str2int(const std::string &s, int &i){
     std::stringstream(s) >> i;
 }
 
-template<typename T>
-void showVec(std::vector<T> v){
-    for (typename std::vector<T>::const_iterator i = v.begin(); v.end() != i; ++i){
-        std::cout << *i << std::endl;
-    }
-}
 
