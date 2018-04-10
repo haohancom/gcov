@@ -28,6 +28,5 @@ filename is : targetFile
 2. use ```make clean``` to remove unwanted intermediate files
 ## TODO
 add a tool which can combine report with gitdiff, so that when someone change the code, the report will refresh.
-- switch git diff result from stream to vector<string>
-- analyze vector and get changed line num
+- complete while loop in diffAnalyse.cpp by class [result] then delete the old version
 - change report html file to show changed code coverage situation intuitively 
