@@ -2,51 +2,6 @@
 #include"tool/tool.h"
 using namespace std;
 
-void res2int(vector<string> vDiffReslut, vector<int> &vChangedLine){
-    bool begin = 0;
-    string str = "";
-    string sPos = "";
-    int iPos = 0;
-    vector<string>::iterator it = vDiffReslut.begin();
-    while(vDiffReslut.end() != it){
-        str = *it;
-
-        //diff --git a/fileName b/fileName
-        if ('d' == str[0]){
-            begin = 0;
-            iPos = 0;
-        }
-
-        //@@ -beginLocation, length +beginLocation, length @@xxxxxx
-        if ('@' == str[0] && '@' == str[1]){
-            begin = 1;
-
-            std::size_t pos1 = str.find("+");
-            std::size_t pos2 = str.find(",", pos1 + 1);
-            sPos = str.substr(pos1 + 1, pos2 - pos1 - 1);
-            str2int(sPos, iPos);
-            --iPos; //now iPos saves the begin position of changed code
-        }
-
-        //normal line
-        if (' ' == str[0]){
-            ++iPos;
-        }
-
-        //+ xxxxxx
-        if (begin && '+' == str[0]){
-            ++iPos;
-            vChangedLine.push_back(iPos);
-        }
-
-        //- xxxxxx
-        if (begin && '-' == str[0]){
-            //do nothing
-        }
-        ++it;
-    }
-}
-
 class result{
 public:
     static result& instance(vector<string>::const_iterator it){
@@ -56,7 +11,11 @@ public:
 
     void nextit() {++it;}
     void it2str() {str = *it;}
+    void showit() {cout << *it << endl;}
     const char str0() const {return str[0];}
+    bool getBegin() {return begin;}
+    vector<string>::const_iterator getIt() {return it;}
+    vector<int> getVecInt() {return vChangedLine;}
 
     void End();
     void Begin();
@@ -78,7 +37,7 @@ private:
 
     result(result const&);
     result& operator=(result const&);
-    ~result();
+    ~result() {vector<int>().swap(vChangedLine);}
 };
 
 void result::End(){
@@ -108,14 +67,34 @@ void result::Minus(){
     //do nothing
 }
 
+void whileLoop(result &r, vector<string>::const_iterator endIt){
+    while (endIt != r.getIt()){
+        r.it2str();
+
+        //diff --git a/fileName b/fileName
+        if ('d' == r.str0()) r.End();
+
+        //@@ -beginLocation, length +beginLocation, length @@xxxxxx
+        if ('@' == r.str0()) r.Begin();
+
+        //normal line
+        if (' ' == r.str0()) r.Normal();
+
+        //+ xxxxxx
+        if (r.getBegin() && '+' == r.str0()) r.Add();
+
+        //- xxxxxx
+        if (r.getBegin() && '-' == r.str0()) r.Minus();
+
+        r.nextit();
+    }
+    showVec(r.getVecInt());
+}
+
 int main(){
-    vector<string> vDiffReslut;;   
+    vector<string> vDiffReslut;
     shellResultToVector(shell("git diff"), vDiffReslut);
-
-    //analyse vDiffReslut
-    vector<int> vChangedLine;
-    res2int(vDiffReslut, vChangedLine);
-
-    showVec(vChangedLine);
+    vector<string>::const_iterator it = vDiffReslut.begin();
+    whileLoop(result::instance(it), static_cast<vector<string>::const_iterator>(vDiffReslut.end()));
     return 0;
 }
