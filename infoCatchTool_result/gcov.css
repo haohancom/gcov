@@ -1,3 +1,15 @@
+td.linegreen,
+span.linegreen
+{
+  background-color: #7FFF00;
+}
+
+td.linepink,
+span.linepink
+{
+  background-color: #CD2990;
+}
+
 /* All views: initial background and text color */
 body
 {

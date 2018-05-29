@@ -67,20 +67,20 @@
 <span class="lineNum">       5 </span>            : #include&lt;fstream&gt;
 <a name="6"><span class="lineNum">       6 </span>            : using namespace std;</a>
 <span class="lineNum">       7 </span>            : 
-<span class="lineNum">       8 </span><span class="lineCov">          1 : void getInfo(vector&lt;string&gt; &amp;v, char** argv){</span>
+<span class="lineNum">       8 </span><span class="linegreen">          1 : void getInfo(vector&lt;string&gt; &amp;v, char** argv){</span>
 <span class="lineNum">       9 </span><span class="lineCov">          1 :     string s = &quot;&quot;;</span>
 <span class="lineNum">      10 </span><span class="lineCov">          1 :     int index = 1;</span>
 <span class="lineNum">      11 </span><span class="lineCov">          6 :     while (NULL != argv[index]){</span>
 <span class="lineNum">      12 </span><span class="lineCov">          4 :         s = argv[index];</span>
 <span class="lineNum">      13 </span><span class="lineCov">          4 :         v.push_back(s);</span>
-<span class="lineNum">      14 </span><span class="lineCov">          4 :         s = &quot;&quot;;</span>
+<span class="lineNum">      14 </span><span class="linegreen">          4 :         s = &quot;&quot;;</span>
 <span class="lineNum">      15 </span><span class="lineCov">          4 :         ++index;</span>
 <span class="lineNum">      16 </span><span class="lineCov">          1 :     }</span>
 <a name="17"><span class="lineNum">      17 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      18 </span>            : 
 <span class="lineNum">      19 </span><span class="lineNoCov">          0 : void printVector(vector&lt;string&gt; v){</span>
 <span class="lineNum">      20 </span><span class="lineNoCov">          0 :     cout &lt;&lt; &quot;print info in v : &quot;&lt;&lt;endl;</span>
-<span class="lineNum">      21 </span><span class="lineNoCov">          0 :     vector&lt;string&gt;::iterator i = v.begin();</span>
+<span class="lineNum">      21 </span><span class="linepink">          0 :     vector&lt;string&gt;::iterator i = v.begin();</span>
 <span class="lineNum">      22 </span><span class="lineNoCov">          0 :     while (v.end() != i){</span>
 <span class="lineNum">      23 </span><span class="lineNoCov">          0 :         cout &lt;&lt; *i &lt;&lt; endl;</span>
 <span class="lineNum">      24 </span><span class="lineNoCov">          0 :         ++i;</span>

@@ -25,7 +25,7 @@ void shell(std::string cmd){
 void MyMainWindows::slotAnalyse(QTextEdit* QTextPtr)
 {
     std::string strText = QTextPtr->toPlainText().toStdString();
-    shell("touch bbbb");
+    shell("firefox ../infoCatchTool_result/root/hanhao/gcov/infoCatchTool.cpp.gcov.html");
 }
 
 void MyMainWindows::slotClicked(){
